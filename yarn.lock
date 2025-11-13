@@ -947,6 +947,11 @@ globals@^16.5.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-16.5.0.tgz#ccf1594a437b97653b2be13ed4d8f5c9f850cac1"
   integrity sha512-c/c15i26VrJ4IRt5Z89DnIzCGDn9EcebibhAOjw5ibqEHsE1wLUgkPn9RDmNcUKyU87GeaL633nyJ+pplFR2ZQ==
 
+gsap@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.13.0.tgz#597d4e019a2bb487785387d91296adebf92db9dd"
+  integrity sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==
+
 has-flag@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-4.0.0.tgz#944771fd9c81c81265c4d6941860da06bb59479b"
@@ -1248,6 +1253,11 @@ supports-color@^7.1.0:
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
+
+three@^0.181.1:
+  version "0.181.1"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.181.1.tgz#7c33995f097b8d42eda209b8dd49e2fb648cc53f"
+  integrity sha512-bz9xZUQMw3pJbjKy7roiwXWgAp+oVUa+4k5o0oBAQ+IFJuru1xzvtk63h6k72XZanXS/SgoEhV6927Vgazyq2w==
 
 tinyglobby@^0.2.15:
   version "0.2.15"

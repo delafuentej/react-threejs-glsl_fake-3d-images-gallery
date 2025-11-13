@@ -1,68 +1,201 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "PP Neue Montreal";
+  background-color: #0f0f0f;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  color: #fff;
+  font-size: 36px;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+a,
+p {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.blurry-prev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(80px);
+}
+
+.col {
+  position: relative;
+  padding: 1em;
+}
+
+.site-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-preview {
+  flex: 2;
+}
+
+.project-details {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 50%;
+}
+
+.title {
+  margin-bottom: 0.5em;
+}
+
+.info {
+  margin-bottom: 1em;
+}
+
+.title,
+.line {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.title h1 {
+  position: relative;
+  transform: translateY(40px);
+  will-change: transform;
+}
+
+.info p .line span {
+  display: inline-block;
+  position: relative;
+  transform: translateY(20px);
+  will-change: transform;
+}
+
+.project-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 75%;
+  height: 100vh;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.project-img img {
+  will-change: transform;
+}
+
+.gallery-wrapper {
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  overflow: auto;
+  padding: 0.75em;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.gallery {
+  width: 80vw;
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+.gallery.item {
+  position: relative;
+  flex: 1;
+  background-color: #aeaeae;
+}
+.gallery .item:hover {
+  cursor: pointer;
+}
+
+.gallery.item::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.65);
+  transition: background-color 0.5s ease-in-out;
+  transition-delay: 0.5s;
+}
+
+.gallery .item.active::after {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
   }
-  a:hover {
-    color: #747bff;
+
+  .site-info {
+    flex: 0.5;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-  button {
-    background-color: #f9f9f9;
+
+  .site-info .copy {
+    display: none;
+  }
+
+  .project-details {
+    width: calc(100% - 10em);
+  }
+
+  .project-img {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .gallery-wrapper {
+    width: 20vw;
+    height: 100vh;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gallery {
+    width: 300vw;
+    height: 100px;
+    flex-direction: column;
   }
 }
