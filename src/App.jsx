@@ -4,12 +4,12 @@ import gsap from "gsap";
 import { useFake3DPlane } from "./hooks/useFake3DPlane";
 import GalleryWrapper from "./components/GalleryWrapper";
 import ProjectPreview from "./components/ProjectPreview";
+import BlurryBackground from "./components/BlurryBackground";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
   const blurryRef = useRef();
   const previewRef = useRef();
-  const imgRef = useRef();
 
   const item = galleryItems[activeIndex];
 
@@ -88,10 +88,7 @@ function App() {
     <>
       <div className="container">
         {/*  === FONDO BORROSO (MISMA ESTRUCTURA) === */}
-        <div className="blurry-prev" ref={blurryRef}>
-          <img src={item.fake3dImg} className="blurry-img" alt="" />
-          <div className="overlay"></div>
-        </div>
+        <BlurryBackground blurryRef={blurryRef} imgSrc={item.fake3dImg} />
 
         {/* === COLUMNA IZQUIERDA (TÍTULO + TEXTO) === */}
         <div className="site-info">
