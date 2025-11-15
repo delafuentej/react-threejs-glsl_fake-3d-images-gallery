@@ -3,6 +3,7 @@ import React, { useState, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { useFake3DPlane } from "./hooks/useFake3DPlane";
 import GalleryWrapper from "./components/GalleryWrapper";
+import ProjectPreview from "./components/ProjectPreview";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -97,22 +98,12 @@ function App() {
           <h1 className="title">{item.title}</h1>
         </div>
 
-        {/*  (IMAGEN PRINCIPAL) aplicar efectos hover-fake3d con three.js === */}
-        <div className="project-preview" ref={previewRef}>
-          <div className="canvas-wrapper">
-            {!isReady && <div>Loading...</div>}
-            <canvas
-              className="canvas"
-              ref={canvasRef}
-              // style={{
-              // width: "100%",
-              // height: "100%",
-              // objectFit: "fill",
-              // }}
-            />
-          </div>
-        </div>
-
+        {/*  (PROJECT PREVIEW COMPONENT) aplicar efectos hover-fake3d con three.js === */}
+        <ProjectPreview
+          previewRef={previewRef}
+          canvasRef={canvasRef}
+          isReady={isReady}
+        />
         {/* === GALLERY WRAPPER COMPONENT === */}
         <GalleryWrapper
           galleryItems={galleryItems}
