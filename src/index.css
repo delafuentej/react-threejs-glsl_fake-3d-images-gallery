@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +10,8 @@ html,
 body {
   width: 100%;
   height: 100%;
-  font-family: "PP Neue Montreal";
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
   background-color: #0f0f0f;
 }
 
@@ -54,8 +57,9 @@ body {
   writing-mode: vertical-rl;
   text-orientation: upright;
   will-change: transform;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 30px;
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
 .project-preview {
