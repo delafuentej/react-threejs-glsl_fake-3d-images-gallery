@@ -3,11 +3,11 @@
 export const colorPalette = {
   human: [
     // rostros humanos / mujeres / aspecto artístico
-    "#FAD6C1", // tono piel cálido
-    "#EAC9B7", // beige arenisca
-    "#F5E1D2", // pastel claro
-    "#D9C3B0", // marrón suave
-    "#FFDDD2", // rosa pálido
+    "#F5F5F5", // Mármol más cálido / piel clara
+    "#FFD633", // Oro más suave y brillante
+    "#C86B40", // Cobre cálido y elegante
+    "#FF5C2E", // Llama viva con un toque más rosado
+    "#FF9987", // Coral pastel más vibrante y armonioso
   ],
   fantasy: [
     // dragones / criaturas míticas
@@ -27,11 +27,11 @@ export const colorPalette = {
   ],
   playful: [
     // animales lúdicos / coloridos / manualidades
-    "#FF4F4F", // rojo vivo
-    "#FFB400", // amarillo vibrante
-    "#00CFFF", // azul cielo
-    "#FF69B4", // rosa intenso
-    "#7FFF00", // verde neón
+    "#00FF9F", // Esmeralda neón brillante
+    "#00F0FF", // Cyan neón intenso
+    "#005BFF", // Azul mar brillante
+    "#9A00FF", // Violeta neón
+    "#C600FF", // Morado intenso
   ],
   robot: [
     // robots / mecánicos
@@ -140,7 +140,7 @@ export const galleryItems = [
 
   // Robots / mecánicos
   {
-    title: "Sentinel of the Skies",
+    title: "Nimbus Eye",
     type: "robot",
     depthImg: "/images/depth/robot_depth.webp",
     fake3dImg: "/images/fake3d/robot_fake3d.webp",

@@ -1,12 +1,13 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+import ShowGalleryBtn from "./ShowGalleryBtn";
 import { SplitText } from "gsap/SplitText";
 import { colorPalette } from "../constants";
 
 gsap.registerPlugin(SplitText);
 
-const Titel = ({ item }) => {
+const Titel = ({ item, showGallery, setShowGallery }) => {
   const titleRef = useRef(null);
 
   useEffect(() => {

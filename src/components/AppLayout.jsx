@@ -92,7 +92,12 @@ function AppLayout() {
     <>
       <div className="container">
         {/*  === FONDO BORROSO (MISMA ESTRUCTURA) === */}
-        <BlurryBackground blurryRef={blurryRef} imgSrc={item.fake3dImg} />
+        <BlurryBackground
+          blurryRef={blurryRef}
+          imgSrc={item.fake3dImg}
+          showGallery={showGallery}
+          setShowGallery={setShowGallery}
+        />
 
         <ShowGalleryBtn
           showGallery={showGallery}

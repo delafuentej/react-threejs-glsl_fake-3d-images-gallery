@@ -13,6 +13,7 @@ body {
   font-family: "Fredoka", sans-serif;
   font-weight: 700;
   background-color: #0f0f0f;
+  overflow-y: hidden;
 }
 
 .container {
@@ -41,21 +42,22 @@ body {
 }
 
 .show-gallery {
-  position: relative;
-  top: 0;
-  left: 200;
-  z-index: 100;
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  z-index: 1;
 }
 .show-gallery-btn {
+  position: absolute;
   display: flex;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  height: 40px;
-  width: 80pxpx;
   padding: 0.6em 1.2em;
   border: 2px solid white;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .show-gallery-btn:hover {
@@ -63,10 +65,10 @@ body {
 }
 
 .icon {
-  font-size: 25px;
+  font-size: clamp(0.85rem, 4vw, 1.5rem);
   display: flex;
   justify-content: center;
-  align-item: center;
+  align-items: center;
 }
 .gallery-on {
   display: flex;
@@ -88,6 +90,7 @@ body {
   justify-content: center;
   align-items: center;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
+  width: 10%;
 }
 
 .title h1 {
@@ -97,7 +100,7 @@ body {
   writing-mode: vertical-rl;
   text-orientation: upright;
   will-change: transform;
-  font-size: 30px;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: bolder;
   text-transform: uppercase;
 }
@@ -106,22 +109,6 @@ body {
   position: relative;
   flex: 1.5;
 }
-/*  */
-/* .title { */
-/* position: absolute; */
-/* top: 1em; */
-/* left: 1em; */
-/* margin-bottom: 0.5em; */
-
-/* width: 80%; */
-/* } */
-
-/* .title { */
-/* position: relative; */
-
-/* transform: translateY(40px); */
-/* will-change: transform; */
-/* } */
 
 .canvas-wrapper {
   position: absolute;
@@ -151,6 +138,8 @@ body {
   background-color: rgba(255, 255, 255, 0.01);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 .gallery {
@@ -163,10 +152,13 @@ body {
 
 .gallery .item {
   position: relative;
-  flex: 1;
+  /* flex: 1; */
   //background-color: #aeaeae;
 }
 .gallery .item {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
   cursor: pointer;
 }
 
@@ -195,6 +187,11 @@ body {
     justify-content: center;
     alin-items: center;
   }
+  .show-gallery {
+    position: relative;
+    top: 1%;
+    left: 1%;
+  }
 
   .blurry-prev {
     position: absolute;
@@ -220,17 +217,10 @@ body {
     top: 0;
     right: 0;
     position: absolute;
-    display: flex;
-    flex-direction: row;
-    width: 15vw;
-    height: 100vh;
+    width: 20vw;
+    height: 100%;
+    padding: 0.25em;
     border-right: none;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .gallery {
-    width: 100%;
-    height: auto;
-    flex-direction: column;
   }
 }
