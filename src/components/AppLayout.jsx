@@ -6,9 +6,12 @@ import BlurryBackground from "./BlurryBackground";
 import Titel from "./Titel";
 import { galleryItems } from "../constants";
 import Fake3DPlane from "./Fake3DPlane";
+import ShowGalleryBtn from "./ShowGalleryBtn";
 
 function AppLayout() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showGallery, setShowGallery] = useState(false);
+
   const blurryRef = useRef();
   const previewRef = useRef();
 
@@ -91,6 +94,11 @@ function AppLayout() {
         {/*  === FONDO BORROSO (MISMA ESTRUCTURA) === */}
         <BlurryBackground blurryRef={blurryRef} imgSrc={item.fake3dImg} />
 
+        <ShowGalleryBtn
+          showGallery={showGallery}
+          setShowGallery={setShowGallery}
+        />
+
         {/* === COLUMNA IZQUIERDA (TÍTULO) === */}
         <Titel item={item} />
 
@@ -105,6 +113,7 @@ function AppLayout() {
           galleryItems={galleryItems}
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
+          showGallery={showGallery}
         />
       </div>
     </>

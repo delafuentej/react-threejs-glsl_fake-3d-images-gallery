@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+
 import { SplitText } from "gsap/SplitText";
 import { colorPalette } from "../constants";
 
@@ -50,12 +51,14 @@ const Titel = ({ item }) => {
   }, [item.title, item.type]);
 
   return (
-    <div className="title">
-      {/* Usamos key para forzar que React remonte el h1 */}
-      <h1 key={item.title} ref={titleRef}>
-        {item.title}
-      </h1>
-    </div>
+    <>
+      <div className="title">
+        {/* Usamos key para forzar que React remonte el h1 */}
+        <h1 key={item.title} ref={titleRef}>
+          {item.title}
+        </h1>
+      </div>
+    </>
   );
 };
 
