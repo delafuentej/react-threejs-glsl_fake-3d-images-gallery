@@ -105,21 +105,22 @@ function AppLayout() {
         <Titel item={item} />
 
         {/*  (PROJECT PREVIEW COMPONENT) aplicar efectos hover-fake3d con three.js === */}
-        <Suspense fallback={null}>
-          {isReady && (
-            <Fake3DPlane previewRef={previewRef} canvasRef={canvasRef} />
-          )}
-        </Suspense>
+
+        <Fake3DPlane
+          previewRef={previewRef}
+          canvasRef={canvasRef}
+          isReady={isReady}
+        />
+
+        {/* </Suspense> */}
         {/* === GALLERY WRAPPER COMPONENT === */}
         <Suspense fallback={null}>
-          {isReady && showGallery && (
-            <GalleryWrapper
-              galleryItems={galleryItems}
-              activeIndex={activeIndex}
-              setActiveIndex={setActiveIndex}
-              showGallery={showGallery}
-            />
-          )}
+          <GalleryWrapper
+            galleryItems={galleryItems}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+            showGallery={showGallery}
+          />
         </Suspense>
       </div>
     </>
