@@ -3,24 +3,23 @@ import react from "@vitejs/plugin-react";
 import vitePreloadPlugin from "vite-plugin-preload";
 import glsl from "vite-plugin-glsl";
 
-// https://vite.dev/config/
 export default defineConfig({
   build: {
     minify: "esbuild",
     target: "esnext",
     terserOptions: {
       compress: {
-        drop_console: true, // elimina console.log
+        drop_console: true,
         drop_debugger: true,
       },
     },
-    chunkSizeWarningLimit: 2000, // en KB
+    chunkSizeWarningLimit: 2000,
     rollupOptions: {
       output: {
-        manualChunks: {
-          three: ["three"],
-          react: ["react", "react-dom"],
-          gsap: ["gsap"],
+        manualChunks(id) {
+          if (id.includes("node_modules/three")) return "three";
+          if (id.includes("node_modules/gsap")) return "gsap";
+          if (id.includes("node_modules/react")) return "react";
         },
       },
     },

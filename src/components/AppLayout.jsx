@@ -2,13 +2,13 @@ import { useState, useRef, lazy, Suspense } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useFake3DPlane } from "../hooks/useFake3DPlane";
-// import GalleryWrapper from "./GalleryWrapper";
 import BlurryBackground from "./BlurryBackground";
 import Titel from "./Titel";
 import { galleryItems } from "../constants";
-import Fake3DPlane from "./Fake3DPlane";
+
 import ShowGalleryBtn from "./ShowGalleryBtn";
 
+const Fake3DPlane = lazy(() => import("./Fake3DPlane"));
 const GalleryWrapper = lazy(() => import("./GalleryWrapper"));
 
 function AppLayout() {
@@ -105,11 +105,11 @@ function AppLayout() {
         <Titel item={item} />
 
         {/*  (PROJECT PREVIEW COMPONENT) aplicar efectos hover-fake3d con three.js === */}
-        <Fake3DPlane
-          previewRef={previewRef}
-          canvasRef={canvasRef}
-          isReady={isReady}
-        />
+        <Suspense fallback={null}>
+          {isReady && (
+            <Fake3DPlane previewRef={previewRef} canvasRef={canvasRef} />
+          )}
+        </Suspense>
         {/* === GALLERY WRAPPER COMPONENT === */}
         <Suspense fallback={null}>
           {isReady && showGallery && (
