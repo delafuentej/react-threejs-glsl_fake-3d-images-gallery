@@ -7,8 +7,7 @@ import Titel from "./Titel";
 import { galleryItems } from "../constants";
 
 import ShowGalleryBtn from "./ShowGalleryBtn";
-
-const Fake3DPlane = lazy(() => import("./Fake3DPlane"));
+import Fake3DPlane from "./Fake3DPlane";
 const GalleryWrapper = lazy(() => import("./GalleryWrapper"));
 
 function AppLayout() {
@@ -115,12 +114,14 @@ function AppLayout() {
         {/* </Suspense> */}
         {/* === GALLERY WRAPPER COMPONENT === */}
         <Suspense fallback={null}>
-          <GalleryWrapper
-            galleryItems={galleryItems}
-            activeIndex={activeIndex}
-            setActiveIndex={setActiveIndex}
-            showGallery={showGallery}
-          />
+          {showGallery && (
+            <GalleryWrapper
+              galleryItems={galleryItems}
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
+              showGallery={showGallery}
+            />
+          )}
         </Suspense>
       </div>
     </>
