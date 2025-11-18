@@ -1,15 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
-
+import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import { colorPalette } from "../constants";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(useGSAP, SplitText);
 
 const Titel = ({ item }) => {
   const titleRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!titleRef.current) return;
 
     // Separar título en palabras y letras

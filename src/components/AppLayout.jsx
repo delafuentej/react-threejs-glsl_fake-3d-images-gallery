@@ -1,12 +1,15 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, lazy, Suspense } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { useFake3DPlane } from "../hooks/useFake3DPlane";
-import GalleryWrapper from "./GalleryWrapper";
+// import GalleryWrapper from "./GalleryWrapper";
 import BlurryBackground from "./BlurryBackground";
 import Titel from "./Titel";
 import { galleryItems } from "../constants";
 import Fake3DPlane from "./Fake3DPlane";
 import ShowGalleryBtn from "./ShowGalleryBtn";
+
+const GalleryWrapper = lazy(() => import("./GalleryWrapper"));
 
 function AppLayout() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -17,15 +20,14 @@ function AppLayout() {
 
   const item = galleryItems[activeIndex];
 
-  const { canvasRef, isReady } = useFake3DPlane(
-    galleryItems[activeIndex].fake3dImg,
-    galleryItems[activeIndex].depthImg,
-    { xDepth: 7, yDepth: 7 }
-  );
+  const { canvasRef, isReady } = useFake3DPlane(item.fake3dImg, item.depthImg, {
+    xDepth: 7,
+    yDepth: 7,
+  });
 
   // === ANIMACIONES GSAP (FIELES AL ORIGINAL) ===
-  useLayoutEffect(() => {
-    if (!canvasRef.current) return;
+  useGSAP(() => {
+    if (!canvasRef.current || !isReady) return;
 
     const ctx = gsap.context(() => {
       // Fondo borroso crossfade
@@ -109,12 +111,16 @@ function AppLayout() {
           isReady={isReady}
         />
         {/* === GALLERY WRAPPER COMPONENT === */}
-        <GalleryWrapper
-          galleryItems={galleryItems}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          showGallery={showGallery}
-        />
+        <Suspense fallback={null}>
+          {isReady && showGallery && (
+            <GalleryWrapper
+              galleryItems={galleryItems}
+              activeIndex={activeIndex}
+              setActiveIndex={setActiveIndex}
+              showGallery={showGallery}
+            />
+          )}
+        </Suspense>
       </div>
     </>
   );

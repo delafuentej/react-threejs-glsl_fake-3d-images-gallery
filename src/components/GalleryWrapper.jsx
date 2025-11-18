@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const GalleryWrapper = ({
@@ -9,7 +10,7 @@ const GalleryWrapper = ({
 }) => {
   const wrapperRef = useRef();
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!wrapperRef.current) return;
 
     if (showGallery) {
