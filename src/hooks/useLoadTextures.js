@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as THREE from "three";
+import { TextureLoader } from "three";
 
 export function useLoadTextures(mapImage, depthImage) {
   const [textures, setTextures] = useState(null);
@@ -7,7 +7,7 @@ export function useLoadTextures(mapImage, depthImage) {
   useEffect(() => {
     if (!mapImage || !depthImage) return;
 
-    const loader = new THREE.TextureLoader();
+    const loader = new TextureLoader();
 
     const load = (url) =>
       new Promise((resolve, reject) => {

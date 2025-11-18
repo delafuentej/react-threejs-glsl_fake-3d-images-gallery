@@ -17,5 +17,5 @@ export function useRenderLoop(rendererRef, sceneRef, cameraRef, update) {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [cameraRef, rendererRef, sceneRef, update]);
 }

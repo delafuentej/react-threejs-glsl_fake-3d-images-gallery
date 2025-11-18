@@ -52,7 +52,7 @@ export function useResponsivePlane(
       material.dispose();
       sceneRef.current.remove(plane);
     };
-  }, [textures, params.xDepth, params.yDepth]);
+  }, [textures, params.xDepth, params.yDepth, cameraRef, sceneRef, shaders]);
 
   return planeRef;
 }

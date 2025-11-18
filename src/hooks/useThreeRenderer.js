@@ -1,16 +1,11 @@
 import { useEffect, useRef } from "react";
-import * as THREE from "three";
+import { WebGLRenderer, Scene, PerspectiveCamera } from "three";
 
 export function useThreeRenderer(canvasRef) {
   const rendererRef = useRef(null);
-  const sceneRef = useRef(new THREE.Scene());
+  const sceneRef = useRef(new Scene());
   const cameraRef = useRef(
-    new THREE.PerspectiveCamera(
-      45,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      100
-    )
+    new PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100)
   );
 
   useEffect(() => {
@@ -19,7 +14,7 @@ export function useThreeRenderer(canvasRef) {
     const camera = cameraRef.current;
     camera.position.z = 5;
 
-    const renderer = new THREE.WebGLRenderer({
+    const renderer = new WebGLRenderer({
       canvas: canvasRef.current,
       alpha: true,
     });
@@ -39,7 +34,7 @@ export function useThreeRenderer(canvasRef) {
       window.removeEventListener("resize", handleResize);
       renderer.dispose();
     };
-  }, []);
+  }, [canvasRef]);
 
   return { rendererRef, sceneRef, cameraRef };
 }
