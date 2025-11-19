@@ -114,14 +114,14 @@ function AppLayout() {
         {/* </Suspense> */}
         {/* === GALLERY WRAPPER COMPONENT === */}
         <Suspense fallback={null}>
-          {showGallery && (
-            <GalleryWrapper
-              galleryItems={galleryItems}
-              activeIndex={activeIndex}
-              setActiveIndex={setActiveIndex}
-              showGallery={showGallery}
-            />
-          )}
+          {/* {showGallery && ( */}
+          <GalleryWrapper
+            galleryItems={galleryItems}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+            showGallery={showGallery}
+          />
+          {/* )} */}
         </Suspense>
       </div>
     </>
