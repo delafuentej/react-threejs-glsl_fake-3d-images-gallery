@@ -66,7 +66,7 @@ export const galleryItems = [
     depthImg: "/images/depth/woman2_depth.webp",
   },
   {
-    title: "Inferno Woman",
+    title: "Blaze Mistress",
     type: "human",
     fake3dImg: "/images/fake3d/human_fake3d.webp",
     depthImg: "/images/depth/human_depth.webp",
