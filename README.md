@@ -22,11 +22,11 @@ Depth maps for the images were created either with a **custom Python script** or
 
 **🌐 Live Demo:** [fake-3d-images-gallery](https://react-threejs-glsl-fake-3d-images-g.vercel.app/)
 
-<div style="display: flex; width: 100%;">
-  <img src="./images/app/app1.png" width="30%" />
-  <img src="./images/app/app2.png" width="30%" />
-  <img src="./images/app/app3.png" width="30%" />
-</div>
+<p align="center" width="100%">
+<img src="public/images/app/app1.png" width="30%" />
+<img src="public/images/app/app2.png" width="30%" />
+<img src="public/images/app/app3.png" width="30%" />
+</p>
 
 ---
 
