@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TextureLoader } from "three";
+import { loadTextureCached } from "../utils/textureCache";
 
 export function useLoadTextures(mapImage, depthImage) {
   const [textures, setTextures] = useState(null);
@@ -7,14 +7,7 @@ export function useLoadTextures(mapImage, depthImage) {
   useEffect(() => {
     if (!mapImage || !depthImage) return;
 
-    const loader = new TextureLoader();
-
-    const load = (url) =>
-      new Promise((resolve, reject) => {
-        loader.load(url, resolve, undefined, reject);
-      });
-
-    Promise.all([load(mapImage), load(depthImage)])
+    Promise.all([loadTextureCached(mapImage), loadTextureCached(depthImage)])
       .then(([map, depth]) => setTextures({ map, depth }))
       .catch(console.error);
   }, [mapImage, depthImage]);

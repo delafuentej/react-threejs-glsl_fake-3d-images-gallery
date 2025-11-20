@@ -20,7 +20,12 @@ const GalleryWrapper = ({
             className={`item ${i === activeIndex ? "active" : ""}`}
             onClick={() => setActiveIndex(i)}
           >
-            <img src={g.fake3dImg} alt={g.title} />
+            <img
+              src={g.fake3dImg}
+              alt={g.title}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         ))}
       </div>
