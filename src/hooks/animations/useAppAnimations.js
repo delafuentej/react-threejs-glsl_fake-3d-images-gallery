@@ -1,9 +1,9 @@
 // /animations/useAppAnimations.js
-import { useGSAP } from "@gsap/react";
+import { useLayoutEffect } from "react";
 import { gsap } from "./gsapSetup";
 
 export const useAppAnimations = (canvasRef, isReady, activeIndex) => {
-  useGSAP(() => {
+  useLayoutEffect(() => {
     if (!canvasRef.current || !isReady) return;
 
     const ctx = gsap.context(() => {

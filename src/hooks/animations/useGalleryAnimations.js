@@ -1,9 +1,10 @@
 // /animations/useGalleryAnimations.js
-import { useGSAP } from "@gsap/react";
+import { useLayoutEffect } from "react";
+// import { useGSAP } from "@gsap/react";
 import { gsap } from "./gsapSetup";
 
 export const useGalleryAnimations = (wrapperRef, showGallery) => {
-  useGSAP(() => {
+  useLayoutEffect(() => {
     if (!wrapperRef.current) return;
 
     if (showGallery) {

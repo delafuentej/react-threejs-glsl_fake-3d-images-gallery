@@ -2,6 +2,7 @@
 
 import { gsap, SplitText } from "./gsapSetup";
 import { useGSAP } from "@gsap/react";
+
 import { colorPalette } from "../../constants";
 
 export const useTitleAnimations = (titleRef, item) => {
