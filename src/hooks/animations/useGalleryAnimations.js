@@ -10,13 +10,20 @@ export const useGalleryAnimations = (wrapperRef, showGallery) => {
       gsap.fromTo(
         wrapperRef.current,
         { y: 80, opacity: 0, display: "none" },
-        { y: 0, opacity: 1, display: "block", duration: 0.7 }
+        {
+          y: 0,
+          opacity: 1,
+          display: "block",
+          duration: 0.7,
+          ease: "power3.out",
+        }
       );
     } else {
       gsap.to(wrapperRef.current, {
         y: 80,
         opacity: 0,
         duration: 0.6,
+        ease: "power3.in",
         onComplete: () => {
           if (wrapperRef.current) wrapperRef.current.style.display = "none";
         },

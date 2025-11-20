@@ -7,7 +7,11 @@ export const useAppAnimations = (canvasRef, isReady, activeIndex) => {
     if (!canvasRef.current || !isReady) return;
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(".blurry-img", { opacity: 0 }, { opacity: 1, duration: 2 });
+      gsap.fromTo(
+        ".blurry-img",
+        { opacity: 0 },
+        { opacity: 1, duration: 2, ease: "power2.out" }
+      );
 
       gsap.fromTo(
         "h1",
@@ -34,6 +38,7 @@ export const useAppAnimations = (canvasRef, isReady, activeIndex) => {
           y: 0,
           opacity: 1,
           duration: 1,
+          ease: "power2.out",
         }
       );
     });
