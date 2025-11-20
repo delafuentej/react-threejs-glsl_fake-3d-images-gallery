@@ -1,6 +1,6 @@
 // /animations/useGalleryAnimations.js
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { gsap } from "./gsapSetup";
 
 export const useGalleryAnimations = (wrapperRef, showGallery) => {
   useGSAP(() => {

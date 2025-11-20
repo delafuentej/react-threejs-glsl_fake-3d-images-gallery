@@ -1,6 +1,6 @@
 // /animations/useAppAnimations.js
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { gsap } from "./gsapSetup";
 
 export const useAppAnimations = (canvasRef, isReady, activeIndex) => {
   useGSAP(() => {

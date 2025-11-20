@@ -1,9 +1,8 @@
 // /animations/useTitleAnimations.js
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
+
+import { gsap, SplitText } from "./gsapSetup";
 import { useGSAP } from "@gsap/react";
 import { colorPalette } from "../../constants";
-gsap.registerPlugin(SplitText);
 
 export const useTitleAnimations = (titleRef, item) => {
   useGSAP(async () => {
