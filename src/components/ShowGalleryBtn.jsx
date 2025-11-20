@@ -1,7 +1,5 @@
 import React from "react";
 import { IoEye, IoEyeOff } from "react-icons/io5";
-// import IoEye from "react-icons/io5";
-// import IoEyeOff from "react-icons/io5";
 import CircularText from "./CircularText";
 import { useMediaQuery } from "react-responsive";
 
